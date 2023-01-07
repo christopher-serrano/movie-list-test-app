@@ -4,6 +4,8 @@ import android.content.Context
 import com.serranocjm.movielisttestapp.data.local.database.TheMovieListDatabase
 import com.serranocjm.movielisttestapp.data.local.database.dao.MovieDao
 import com.serranocjm.movielisttestapp.data.remote.network.ApiClient
+import com.serranocjm.movielisttestapp.repository.MovieRepository
+import com.serranocjm.movielisttestapp.repository.MovieRepositoryImpl
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
@@ -12,7 +14,7 @@ val networkModule = module {
 }
 
 val repositoryModule = module {
-    // factory<MovieRepository> { MovieRepositoryImpl() }
+    factory<MovieRepository> { MovieRepositoryImpl() }
 }
 
 val dataModule = module {

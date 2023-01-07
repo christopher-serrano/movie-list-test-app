@@ -6,7 +6,9 @@ import com.serranocjm.movielisttestapp.data.local.database.dao.MovieDao
 import com.serranocjm.movielisttestapp.data.remote.network.ApiClient
 import com.serranocjm.movielisttestapp.repository.MovieRepository
 import com.serranocjm.movielisttestapp.repository.MovieRepositoryImpl
+import com.serranocjm.movielisttestapp.ui.viewmodel.MovieViewModel
 import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val networkModule = module {
@@ -35,7 +37,7 @@ val databaseModule = module {
 }
 
 val viewModelModule = module {
-    // viewModel { MovieViewModel(get()) }
+    viewModel { MovieViewModel() }
 }
 
 val utilsModule = module {

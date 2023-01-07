@@ -26,6 +26,13 @@ interface MovieDao {
     @Query("SELECT * FROM movies WHERE id = :id")
     suspend fun getMovieDetail(id: String): MovieEntity?
 
+    @Transaction
+    suspend fun saveMovieList(list: List<MovieEntity>) {
+        list.forEach { entity ->
+            upsert(entity)
+        }
+    }
+
     @Query("DELETE FROM movies")
     suspend fun deleteMovieList()
 

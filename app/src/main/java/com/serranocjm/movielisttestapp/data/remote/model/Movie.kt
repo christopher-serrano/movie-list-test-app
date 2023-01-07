@@ -32,13 +32,13 @@ data class Movie(
     @SerializedName("genres")
     val genres: String?,
     @SerializedName("genreList")
-    val genreList: List<Genre?>?,
+    val genreList: List<Genre>?,
     @SerializedName("directors")
     val directors: String?,
     @SerializedName("directorList")
-    val directorList: List<Director?>?,
+    val directorList: List<Director>?,
     @SerializedName("stars")
     val stars: String?,
     @SerializedName("starList")
-    val starList: List<Star?>?
+    val starList: List<Star>?
 )

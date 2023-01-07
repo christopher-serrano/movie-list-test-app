@@ -1,10 +1,10 @@
-package com.serranocjm.movielisttestapp.data.db
+package com.serranocjm.movielisttestapp.data.local.database
 
 import android.content.Context
 import androidx.room.*
-import com.serranocjm.movielisttestapp.data.db.converter.MovieDataConverter
-import com.serranocjm.movielisttestapp.data.db.dao.MovieDao
-import com.serranocjm.movielisttestapp.data.db.entity.MovieEntity
+import com.serranocjm.movielisttestapp.data.local.database.converter.MovieDataConverter
+import com.serranocjm.movielisttestapp.data.local.database.dao.MovieDao
+import com.serranocjm.movielisttestapp.data.local.entity.MovieEntity
 
 @Database(
     entities = [MovieEntity::class],

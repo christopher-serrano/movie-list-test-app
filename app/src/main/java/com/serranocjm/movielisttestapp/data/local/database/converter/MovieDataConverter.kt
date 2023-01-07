@@ -1,4 +1,4 @@
-package com.serranocjm.movielisttestapp.data.db.converter
+package com.serranocjm.movielisttestapp.data.local.database.converter
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson

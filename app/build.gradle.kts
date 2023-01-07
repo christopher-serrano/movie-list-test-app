@@ -25,11 +25,13 @@ android {
     buildTypes {
         getByName("debug") {
             applicationIdSuffix = ".debug"
+            buildConfigField("String", "BASE_URL", "\"https://my.api.mockaroo.com/\"")
         }
         create("stage") {
             // signingConfigs.getByName("debug")
             applicationIdSuffix = ".stage"
             isDebuggable = true
+            buildConfigField("String", "BASE_URL", "\"https://my.api.mockaroo.com/\"")
         }
         getByName("release") {
             isMinifyEnabled = true // Enables code shrinking for the release build type.
@@ -37,6 +39,7 @@ android {
                 getDefaultProguardFile("proguard-android.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BASE_URL", "\"https://my.api.mockaroo.com/\"")
         }
     }
 

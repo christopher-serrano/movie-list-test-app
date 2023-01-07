@@ -1,4 +1,4 @@
-package com.serranocjm.movielisttestapp.data.db.entity
+package com.serranocjm.movielisttestapp.data.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.PrimaryKey

@@ -1,7 +1,7 @@
-package com.serranocjm.movielisttestapp.data.db.dao
+package com.serranocjm.movielisttestapp.data.local.database.dao
 
 import androidx.room.*
-import com.serranocjm.movielisttestapp.data.db.entity.MovieEntity
+import com.serranocjm.movielisttestapp.data.local.entity.MovieEntity
 
 @Dao
 interface MovieDao {

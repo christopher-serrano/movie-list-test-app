@@ -1,4 +1,4 @@
-package com.serranocjm.movielisttestapp.data.db.entity
+package com.serranocjm.movielisttestapp.data.local.entity
 
 import androidx.room.Entity
 import com.serranocjm.movielisttestapp.data.remote.model.Director

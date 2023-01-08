@@ -1,8 +1,13 @@
 package com.serranocjm.movielisttestapp.utils
 
+import android.view.View
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import com.serranocjm.movielisttestapp.utils.custom.OnOneOffClickListener
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.lang.reflect.Type
 
 // utility to return type tokens
@@ -40,4 +45,17 @@ fun <T> String.objectFromJson(classOfT: Class<T>): Any? {
 inline fun <reified T : Any> String.toKotlinObject(): T {
     val gson = Gson()
     return gson.fromJson(this, T::class.java)
+}
+
+fun delayAction(delay: Long, action: () -> Unit) = CoroutineScope(Dispatchers.Main).launch {
+    kotlinx.coroutines.delay(delay)
+    action.invoke()
+}
+
+fun View.setOneOffClickListener(action: () -> Unit) {
+    setOnClickListener(object : OnOneOffClickListener() {
+        override fun onSingleClick(v: View?) {
+            action.invoke()
+        }
+    })
 }

@@ -9,7 +9,6 @@ import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.serranocjm.movielisttestapp.R
 import com.serranocjm.movielisttestapp.data.remote.model.Movie
 import com.serranocjm.movielisttestapp.databinding.FragmentMovieListBinding
 import com.serranocjm.movielisttestapp.ui.adapter.base.DynamicAdapter
@@ -46,12 +45,14 @@ class MovieListFragment : BaseFragment(), KoinComponent {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_movie_list, container, false)
+        _binding = FragmentMovieListBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpMovieAdapter(movieModelList)
+        observeViewModel()
+        setUpMovieAdapter()
         loadData()
     }
 
@@ -100,13 +101,12 @@ class MovieListFragment : BaseFragment(), KoinComponent {
     }
 
     // initial adapter setup
-    private fun setUpMovieAdapter(movieList: List<Movie>?) {
-        val adapter = getDynamicAdapter(movieList, onMovieItemClick)
-        val manager = LinearLayoutManager(requireActivity())
-
-        movieAdapter = adapter
-        binding.rvMovieList.adapter = movieAdapter
-        binding.rvMovieList.layoutManager = manager
+    private fun setUpMovieAdapter() {
+        movieAdapter = getDynamicAdapter(movieModelList, onMovieItemClick)
+        binding.rvMovieList.apply {
+            this.adapter = movieAdapter
+            this.layoutManager = LinearLayoutManager(requireActivity())
+        }
     }
 
     private fun getDynamicAdapter(

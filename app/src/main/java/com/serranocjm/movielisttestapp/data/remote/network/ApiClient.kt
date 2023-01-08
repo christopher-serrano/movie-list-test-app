@@ -27,7 +27,7 @@ class ApiClient {
 
             return Retrofit.Builder()
                 .client(okHttpClient)
-                .baseUrl("url")
+                .baseUrl(BuildConfig.BASE_URL)
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

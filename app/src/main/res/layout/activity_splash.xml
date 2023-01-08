@@ -4,6 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray_mid"
     tools:context=".ui.activity.SplashActivity">
+
+    <ImageView
+        android:id="@+id/ivAppLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_oscars_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAppTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_12"
+        android:text="YAMLA - Yet Anothe Movie List Application"
+        android:textSize="@dimen/text_size_18"
+        app:layout_constraintEnd_toEndOf="@id/ivAppLogo"
+        app:layout_constraintStart_toStartOf="@id/ivAppLogo"
+        app:layout_constraintTop_toBottomOf="@id/ivAppLogo" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray_light">#F5F5F5</color>
+    <color name="gray_mid">#D3D3D3</color>
+    <color name="gray_dark">#9D9B9A</color>
+    <color name="blue_url">#0000EE</color>
 
     <color name="transparent">@android:color/transparent</color>
     <color name="opaque">#30000000</color>

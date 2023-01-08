@@ -19,7 +19,7 @@ class MovieViewModel : BaseViewModel(), KoinComponent {
     val movieList = MutableLiveData<List<Movie>?>()
     val movieDetail = MutableLiveData<Movie?>()
 
-    private fun fetchMovieList() {
+    fun fetchMovieList() {
         viewModelScope.launch {
             fetchMovieListAsync()
         }

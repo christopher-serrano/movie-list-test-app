@@ -1,6 +1,8 @@
 package com.serranocjm.movielisttestapp.utils
 
+import android.content.Context
 import android.view.View
+import android.widget.Toast
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
@@ -59,3 +61,7 @@ fun View.setOneOffClickListener(action: () -> Unit) {
         }
     })
 }
+
+fun Context.toastLong(text: CharSequence) = Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+
+fun Context.toastShort(text: CharSequence) = Toast.makeText(this, text, Toast.LENGTH_SHORT).show()

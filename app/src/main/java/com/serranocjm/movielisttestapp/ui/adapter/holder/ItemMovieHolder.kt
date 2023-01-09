@@ -24,7 +24,15 @@ class ItemMovieHolder(val view: View, imageLoader: ImageLoader) :
             R.drawable.ic_movie_thumb_placeholder
         )
 
-        binding.root.setOneOffClickListener {
+        binding.ivSeeMovieDetail.setOneOffClickListener {
+            onClick.invoke(item, "goto_movie_detail")
+        }
+
+        binding.ivMoviePosterThumbnail.setOneOffClickListener {
+            onClick.invoke(item, "goto_movie_detail")
+        }
+
+        binding.clItemLayout.setOneOffClickListener {
             onClick.invoke(item, "goto_movie_detail")
         }
     }

@@ -40,8 +40,10 @@ class MovieViewModel : BaseViewModel(), KoinComponent {
         when (result) {
             is Result.Success -> {
                 loadingState.postValue(false)
-                if (result.data != null) {
+                if (!result.data.isNullOrEmpty()) {
                     movieList.postValue(result.data)
+                } else {
+                    movieList.postValue(null)
                 }
             }
             is Result.Error -> {
@@ -60,7 +62,7 @@ class MovieViewModel : BaseViewModel(), KoinComponent {
         when (result) {
             is Result.Success -> {
                 loadingState.postValue(false)
-                if (result.data != null) {
+                if (!result.data.isNullOrEmpty()) {
                     movieList.postValue(result.data)
                 } else {
                     getMovieListAsync()

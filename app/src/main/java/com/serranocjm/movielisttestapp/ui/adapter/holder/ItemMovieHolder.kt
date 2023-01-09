@@ -1,6 +1,7 @@
 package com.serranocjm.movielisttestapp.ui.adapter.holder
 
 import android.view.View
+import com.serranocjm.movielisttestapp.R
 import com.serranocjm.movielisttestapp.databinding.ItemMovieBinding
 import com.serranocjm.movielisttestapp.ui.adapter.base.DynamicAdapterViewHolder
 import com.serranocjm.movielisttestapp.ui.adapter.base.ItemModel
@@ -16,6 +17,13 @@ class ItemMovieHolder(val view: View, imageLoader: ImageLoader) :
     override fun bind(item: MovieItemModel, position: Int, onClick: (ItemModel, String) -> Unit) {
         binding.tvMovieTitle.text = item.model.title
         binding.tvMovieYear.text = item.model.year
+
+        imageLoader.loadWithUrl(
+            item.model.image,
+            binding.ivMoviePosterThumbnail,
+            R.drawable.ic_movie_thumb_placeholder
+        )
+
         binding.root.setOneOffClickListener {
             onClick.invoke(item, "goto_movie_detail")
         }

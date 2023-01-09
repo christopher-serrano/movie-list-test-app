@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.serranocjm.movielisttestapp.R
 import com.serranocjm.movielisttestapp.data.remote.model.Movie
 import com.serranocjm.movielisttestapp.databinding.FragmentMovieDetailBinding
 import com.serranocjm.movielisttestapp.ui.viewmodel.MovieViewModel
@@ -76,6 +77,11 @@ class MovieDetailFragment : BaseFragment(), KoinComponent {
             binding.tvMovieTitle.text = it.title
             binding.tvMovieBasicInfo.text = it.getBasicInfo()
             binding.tvMovieSummary.text = it.getFormattedSummary()
+            imageLoader.loadWithUrl(
+                it.image,
+                binding.ivMovieThumbnail,
+                R.drawable.ic_movie_thumb_placeholder
+            )
         }
     }
 

@@ -66,8 +66,8 @@ fun Context.toastLong(text: CharSequence) = Toast.makeText(this, text, Toast.LEN
 
 fun Context.toastShort(text: CharSequence) = Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 
-fun Long.parseDuration(): String {
-    val minutes: Long = this / 1000 / 60
-    val hours: Long = minutes / 60
+fun Int.parseDuration(): String {
+    val hours: Int = this / 60
+    val minutes: Int = this % 60
     return "${hours}h ${minutes}m"
 }

@@ -60,8 +60,8 @@ data class Movie(
     }
 
     private fun getFormattedRunningTime(): String {
-        val seconds: Long = (this.runtimeMins?.toInt() ?: 0) * 60 * 1000L
-        return seconds.parseDuration()
+        val runtime = this.runtimeMins?.toInt() ?: 0
+        return runtime.parseDuration()
     }
 
     fun getFormattedSummary(): String {

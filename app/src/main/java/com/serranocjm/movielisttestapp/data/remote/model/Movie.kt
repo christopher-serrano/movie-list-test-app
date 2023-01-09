@@ -1,6 +1,7 @@
 package com.serranocjm.movielisttestapp.data.remote.model
 
 import com.google.gson.annotations.SerializedName
+import com.serranocjm.movielisttestapp.utils.parseDuration
 
 data class Movie(
     @SerializedName("id")
@@ -41,4 +42,29 @@ data class Movie(
     val stars: String?,
     @SerializedName("starList")
     val starList: List<Star>?
-)
+) {
+    fun getBasicInfo(): String {
+        return "${this.year} - ${getFormattedRunningTime()} - ${this.contentRating}"
+    }
+
+    fun getFormattedDirectorList(): String {
+        return "Direction: ${this.directors}"
+    }
+
+    fun getFormattedCastList(): String {
+        return "Cast: ${this.stars}"
+    }
+
+    fun getFormatterGenreList(): String {
+        return "Genres: ${this.genres}"
+    }
+
+    private fun getFormattedRunningTime(): String {
+        val seconds: Long = (this.runtimeMins?.toInt() ?: 0) * 60 * 1000L
+        return seconds.parseDuration()
+    }
+
+    fun getFormattedSummary(): String {
+        return "Plot summary: ${this.plot}"
+    }
+}

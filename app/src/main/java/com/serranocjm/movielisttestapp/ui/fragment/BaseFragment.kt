@@ -13,4 +13,5 @@ abstract class BaseFragment : Fragment(), KoinComponent {
     open fun observeViewModel() {}
     open fun loadData() {}
     open fun setUpDynamicAdapter() {}
+    open fun setOnBackPressedCallback() {}
 }

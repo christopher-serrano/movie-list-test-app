@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -58,16 +59,11 @@ class MovieListFragment : BaseFragment(), KoinComponent {
 
     override fun onResume() {
         super.onResume()
+        setOnBackPressedCallback()
         initValues()
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     // base
-
     override fun initValues() {
         navController = findNavController()
     }
@@ -141,5 +137,15 @@ class MovieListFragment : BaseFragment(), KoinComponent {
             }
             else -> {}
         }
+    }
+
+    override fun setOnBackPressedCallback() {
+        super.setOnBackPressedCallback()
+        requireActivity().onBackPressedDispatcher.addCallback(object :
+                OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    requireActivity().finish()
+                }
+            })
     }
 }

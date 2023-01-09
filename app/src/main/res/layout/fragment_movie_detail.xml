@@ -16,28 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:id="@+id/llTitleContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/tvMovieTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/dimen_8"
-                    android:layout_marginTop="@dimen/dimen_8"
-                    android:layout_marginEnd="@dimen/dimen_8"
-                    android:layout_marginBottom="@dimen/dimen_8"
-                    android:text="MOVIE TITLE"
-                    android:textSize="@dimen/text_size_18" />
-
-            </LinearLayout>
 
             <ImageView
                 android:id="@+id/ivMovieThumbnail"
@@ -52,22 +30,70 @@
                 app:layout_constraintDimensionRatio="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llTitleContainer"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.50" />
 
-            <TextView
-                android:id="@+id/tvDescription"
+            <LinearLayout
+                android:id="@+id/llInfoContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dimen_8"
-                android:layout_marginTop="@dimen/dimen_4"
-                android:layout_marginEnd="@dimen/dimen_8"
-                android:layout_marginBottom="@dimen/dimen_4"
-                android:text="LOREM IPSUM BLAH BLAH BLAH"
-                android:visibility="visible"
+                android:layout_marginTop="@dimen/dimen_8"
+                android:gravity="start"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivMovieThumbnail" />
+                app:layout_constraintTop_toBottomOf="@id/ivMovieThumbnail">
+
+                <TextView
+                    android:id="@+id/tvMovieTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:layout_marginEnd="@dimen/dimen_8"
+                    android:text="MOVIE TITLE"
+                    android:textSize="@dimen/text_size_18" />
+
+                <TextView
+                    android:id="@+id/tvMovieBasicInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:layout_marginEnd="@dimen/dimen_8"
+                    android:text="MOVIE INFO"
+                    android:textSize="@dimen/text_size_15" />
+
+                <TextView
+                    android:id="@+id/tvMovieSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:layout_marginEnd="@dimen/dimen_8"
+                    android:text="SUMMARY"
+                    android:textSize="@dimen/text_size_15" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMovieInformationContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_4"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivMovieThumbnail">
+
+                <LinearLayout
+                    android:id="@+id/llMovieInformation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+
+            </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

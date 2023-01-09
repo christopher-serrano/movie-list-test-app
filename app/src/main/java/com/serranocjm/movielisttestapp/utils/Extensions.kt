@@ -65,3 +65,9 @@ fun View.setOneOffClickListener(action: () -> Unit) {
 fun Context.toastLong(text: CharSequence) = Toast.makeText(this, text, Toast.LENGTH_LONG).show()
 
 fun Context.toastShort(text: CharSequence) = Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+
+fun Long.parseDuration(): String {
+    val minutes: Long = this / 1000 / 60
+    val hours: Long = minutes / 60
+    return "${hours}h ${minutes}m"
+}

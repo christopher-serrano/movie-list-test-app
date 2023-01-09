@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.serranocjm.movielisttestapp.data.remote.model.Movie
 import com.serranocjm.movielisttestapp.databinding.FragmentMovieDetailBinding
@@ -25,9 +28,7 @@ class MovieDetailFragment : BaseFragment(), KoinComponent {
     private var movieId: String = ""
     private var movie: Movie? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,12 +42,14 @@ class MovieDetailFragment : BaseFragment(), KoinComponent {
 
     override fun onResume() {
         super.onResume()
+        setOnBackPressedCallback()
         initValues()
         loadData()
     }
 
     override fun initValues() {
         super.initValues()
+        navController = findNavController()
         movieId = args.movieId
     }
 
@@ -59,6 +62,7 @@ class MovieDetailFragment : BaseFragment(), KoinComponent {
         }
         movieDetail.observe(viewLifecycleOwner) {
             movie = it
+            setUpFields()
         }
     }
 
@@ -68,5 +72,20 @@ class MovieDetailFragment : BaseFragment(), KoinComponent {
     }
 
     private fun setUpFields() {
+        movie?.let {
+            binding.tvMovieTitle.text = it.title
+            binding.tvMovieBasicInfo.text = it.getBasicInfo()
+            binding.tvMovieSummary.text = it.getFormattedSummary()
+        }
+    }
+
+    override fun setOnBackPressedCallback() {
+        super.setOnBackPressedCallback()
+        requireActivity().onBackPressedDispatcher.addCallback(object :
+                OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    navController.popBackStack()
+                }
+            })
     }
 }

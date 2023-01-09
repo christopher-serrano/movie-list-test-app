@@ -77,6 +77,9 @@ class MovieDetailFragment : BaseFragment(), KoinComponent {
             binding.tvMovieTitle.text = it.title
             binding.tvMovieBasicInfo.text = it.getBasicInfo()
             binding.tvMovieSummary.text = it.getFormattedSummary()
+            binding.tvMovieDirectors.text = it.getFormattedDirectorList()
+            binding.tvMovieCast.text = it.getFormattedCastList()
+            binding.tvMovieGenres.text = it.getFormatterGenreList()
             imageLoader.loadWithUrl(
                 it.image,
                 binding.ivMovieThumbnail,

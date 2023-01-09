@@ -51,13 +51,14 @@
                     android:layout_marginStart="@dimen/dimen_8"
                     android:layout_marginEnd="@dimen/dimen_8"
                     android:text="MOVIE TITLE"
-                    android:textSize="@dimen/text_size_18" />
+                    android:textSize="@dimen/text_size_20" />
 
                 <TextView
                     android:id="@+id/tvMovieBasicInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/dimen_8"
+                    android:layout_marginTop="@dimen/dimen_2"
                     android:layout_marginEnd="@dimen/dimen_8"
                     android:text="MOVIE INFO"
                     android:textSize="@dimen/text_size_15" />
@@ -67,9 +68,40 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/dimen_8"
+                    android:layout_marginTop="@dimen/dimen_4"
                     android:layout_marginEnd="@dimen/dimen_8"
                     android:text="SUMMARY"
-                    android:textSize="@dimen/text_size_15" />
+                    android:textSize="@dimen/text_size_18" />
+
+                <TextView
+                    android:id="@+id/tvMovieGenres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:layout_marginTop="@dimen/dimen_4"
+                    android:layout_marginEnd="@dimen/dimen_8"
+                    android:text="CAST"
+                    android:textSize="@dimen/text_size_18" />
+
+                <TextView
+                    android:id="@+id/tvMovieDirectors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:layout_marginTop="@dimen/dimen_4"
+                    android:layout_marginEnd="@dimen/dimen_8"
+                    android:text="DIRECTORS"
+                    android:textSize="@dimen/text_size_18" />
+
+                <TextView
+                    android:id="@+id/tvMovieCast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dimen_8"
+                    android:layout_marginTop="@dimen/dimen_4"
+                    android:layout_marginEnd="@dimen/dimen_8"
+                    android:text="CAST"
+                    android:textSize="@dimen/text_size_18" />
 
 
             </LinearLayout>

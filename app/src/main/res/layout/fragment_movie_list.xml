@@ -36,6 +36,7 @@
         android:overScrollMode="never"
         android:paddingStart="@dimen/dimen_16"
         android:paddingEnd="@dimen/dimen_16"
+        android:paddingBottom="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

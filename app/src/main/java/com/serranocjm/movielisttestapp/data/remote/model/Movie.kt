@@ -44,19 +44,20 @@ data class Movie(
     val starList: List<Star>?
 ) {
     fun getBasicInfo(): String {
-        return "${this.year} - ${getFormattedRunningTime()} - ${this.contentRating}"
+        val rating = if (this.contentRating.isNullOrBlank()) "N/A" else this.contentRating
+        return "${this.year} - ${getFormattedRunningTime()} - $rating"
     }
 
     fun getFormattedDirectorList(): String {
-        return "Direction: ${this.directors}"
+        return "Direction: ${this.directors ?: "No director list available."}"
     }
 
     fun getFormattedCastList(): String {
-        return "Cast: ${this.stars}"
+        return "Cast: ${this.stars ?: "No cast list available."}"
     }
 
     fun getFormatterGenreList(): String {
-        return "Genres: ${this.genres}"
+        return "Genres: ${this.genres ?: "No genres available."}"
     }
 
     private fun getFormattedRunningTime(): String {
@@ -65,6 +66,6 @@ data class Movie(
     }
 
     fun getFormattedSummary(): String {
-        return "Plot summary: ${this.plot}"
+        return "Plot summary: ${this.plot ?: "No plot summary available."}"
     }
 }

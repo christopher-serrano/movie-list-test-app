@@ -1,10 +1,9 @@
 package com.serranocjm.movielisttestapp.ui.activity
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.serranocjm.movielisttestapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -13,5 +12,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+        checkCoarseLocationPermission()
     }
 }

@@ -16,7 +16,9 @@ import com.serranocjm.movielisttestapp.ui.adapter.base.DynamicAdapter
 import com.serranocjm.movielisttestapp.ui.adapter.base.ItemModel
 import com.serranocjm.movielisttestapp.ui.adapter.item.model.MovieItemModel
 import com.serranocjm.movielisttestapp.ui.adapter.type.factory.MovieTypeFactoryImpl
+import com.serranocjm.movielisttestapp.ui.fragment.utils.MovieSort
 import com.serranocjm.movielisttestapp.ui.viewmodel.MovieViewModel
+import com.serranocjm.movielisttestapp.utils.setOneOffClickListener
 import com.serranocjm.movielisttestapp.utils.toastLong
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.component.KoinComponent
@@ -37,7 +39,9 @@ class MovieListFragment : BaseFragment(), KoinComponent {
     private lateinit var movieAdapter: DynamicAdapter
 
     // lists
-    var movieModelList: List<Movie> = mutableListOf()
+    private var movieModelList: List<Movie> = mutableListOf()
+    private var movieItemModelList: List<ItemModel> = mutableListOf()
+    private var sortedMovieItemModelList: List<ItemModel> = mutableListOf()
 
     // fragment
     override fun onCreateView(
@@ -61,6 +65,7 @@ class MovieListFragment : BaseFragment(), KoinComponent {
         super.onResume()
         setOnBackPressedCallback()
         initValues()
+        initListeners()
     }
 
     // base
@@ -78,10 +83,27 @@ class MovieListFragment : BaseFragment(), KoinComponent {
         }
         movieList.observe(viewLifecycleOwner) {
             movieModelList = it ?: mutableListOf()
+            movieItemModelList = getMovieListForAdapter(movieModelList)
+            sortedMovieItemModelList = movieItemModelList
             initMovieAdapter()
         }
         onError.observe(viewLifecycleOwner) {
             requireActivity().toastLong(it)
+        }
+    }
+
+    // listeners
+    private fun initListeners() {
+        binding.apply {
+            btnSort.setOneOffClickListener {
+                sortMovieList(MovieSort.YEAR_ASC)
+            }
+            btnSortDesc.setOneOffClickListener {
+                sortMovieList(MovieSort.YEAR_DESC)
+            }
+            btnSortOg.setOneOffClickListener {
+                sortMovieList(MovieSort.DEFAULT)
+            }
         }
     }
 
@@ -91,7 +113,7 @@ class MovieListFragment : BaseFragment(), KoinComponent {
     @SuppressLint("NotifyDataSetChanged")
     private fun initMovieAdapter() {
         movieAdapter.apply {
-            submitList(getMovieListForAdapter(movieModelList))
+            submitList(sortedMovieItemModelList)
             notifyDataSetChanged()
         }
     }
@@ -139,6 +161,26 @@ class MovieListFragment : BaseFragment(), KoinComponent {
         }
     }
 
+    private fun sortMovieList(sort: MovieSort) {
+        sortedMovieItemModelList = when (sort) {
+            MovieSort.YEAR_ASC -> {
+                sortedMovieItemModelList.sortedBy { itemModel ->
+                    (itemModel as MovieItemModel).model.year
+                }
+            }
+            MovieSort.YEAR_DESC -> {
+                sortedMovieItemModelList.sortedByDescending { itemModel ->
+                    (itemModel as MovieItemModel).model.year
+                }
+            }
+            else -> {
+                movieItemModelList
+            }
+        }
+        initMovieAdapter()
+    }
+
+    // on backpressed callback
     override fun setOnBackPressedCallback() {
         super.setOnBackPressedCallback()
         requireActivity().onBackPressedDispatcher.addCallback(object :

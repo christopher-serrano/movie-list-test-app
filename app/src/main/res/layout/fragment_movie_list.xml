@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,12 +26,77 @@
             android:layout_marginBottom="@dimen/dimen_8"
             android:text="MOVIE LIST" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12"
+            android:layout_marginEnd="@dimen/dimen_12">
+
+            <TextView
+                android:id="@+id/tvOrderBy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order By Year"
+                android:textSize="@dimen/text_size_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.2" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clButtonContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.8">
+
+                <ImageView
+                    android:id="@+id/btnSort"
+                    android:layout_width="@dimen/dimen_40"
+                    android:layout_height="@dimen/dimen_32"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:background="@drawable/bg_button_background"
+                    android:src="@drawable/ic_chevron_up"
+                    app:layout_constraintBottom_toBottomOf="@id/btnSortDesc"
+                    app:layout_constraintEnd_toStartOf="@id/btnSortDesc"
+                    app:layout_constraintTop_toTopOf="@id/btnSortDesc" />
+
+                <ImageView
+                    android:id="@+id/btnSortDesc"
+                    android:layout_width="@dimen/dimen_40"
+                    android:layout_height="@dimen/dimen_32"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_16"
+                    android:background="@drawable/bg_button_background"
+                    android:src="@drawable/ic_chevron_down"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btnSortOg"
+                    android:layout_width="@dimen/dimen_40"
+                    android:layout_height="@dimen/dimen_32"
+                    android:layout_marginStart="@dimen/dimen_16"
+                    android:background="@drawable/bg_button_background"
+                    android:src="@drawable/ic_original_list"
+                    app:layout_constraintBottom_toBottomOf="@id/btnSortDesc"
+                    app:layout_constraintStart_toEndOf="@id/btnSortDesc"
+                    app:layout_constraintTop_toTopOf="@id/btnSortDesc" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMovieList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_8"
         android:nestedScrollingEnabled="false"
         android:overScrollMode="never"
         android:paddingStart="@dimen/dimen_16"

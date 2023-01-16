@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.serranocjm.movielisttestapp.R
 import com.serranocjm.movielisttestapp.utils.toastLong
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -28,14 +29,14 @@ abstract class BaseActivity : AppCompatActivity() {
                 this,
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED -> {
-                this.toastLong("Location permission granted.")
+                this.toastLong(resources.getString(R.string.permission_granted, "Location"))
             }
 
             ActivityCompat.shouldShowRequestPermissionRationale(
                 this,
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) -> {
-                this.toastLong("Location permission required.")
+                this.toastLong(resources.getString(R.string.permission_needed, "Location"))
                 rqPermissionLauncher.launch(
                     Manifest.permission.ACCESS_COARSE_LOCATION
                 )

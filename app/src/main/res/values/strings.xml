@@ -2,4 +2,7 @@
     <string name="app_name">YAMLA</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="permission_needed">%1$s permission needed.</string>
+    <string name="permission_granted">%1$s permission granted.</string>
+    <string name="permission_denied">%1$s permission denied.</string>
 </resources>

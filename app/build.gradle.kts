@@ -64,11 +64,11 @@ android {
 // Core dependencies
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.7.22")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")
     implementation("androidx.core:core-ktx:1.9.0")
 
     // AppCompat
-    implementation("androidx.appcompat:appcompat:1.5.1")
+    implementation("androidx.appcompat:appcompat:1.6.0")
 
     // LiveData - ViewModel
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
@@ -91,22 +91,22 @@ dependencies {
 
     // ViewPager2
     implementation("androidx.viewpager2:viewpager2:1.0.0")
-    implementation("com.google.android.material:material:1.8.0-beta01")
+    implementation("com.google.android.material:material:1.8.0-rc01")
 
     // Paging
     implementation("androidx.paging:paging-runtime-ktx:3.1.1")
 
     // Room
-    implementation("androidx.room:room-ktx:2.4.3")
-    kapt("androidx.room:room-compiler:2.4.3")
+    implementation("androidx.room:room-ktx:2.5.0")
+    kapt("androidx.room:room-compiler:2.5.0")
 }
 
 // Test dependencies
 dependencies {
 
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.4")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.0")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     // mockito test
     testImplementation("org.mockito:mockito-core:4.5.1")
@@ -122,7 +122,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
 
     // Koin Test Dependencies
-    testImplementation("io.insert-koin:koin-test:3.1.0")
+    testImplementation("io.insert-koin:koin-test:3.3.2")
     implementation("io.insert-koin:koin-android:3.3.0")
     implementation("io.insert-koin:koin-androidx-workmanager:3.1.0")
 }
@@ -140,7 +140,7 @@ dependencies {
     implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
 
     // Koin for Kotlin apps core (dependency injection)
-    implementation("io.insert-koin:koin-core:3.2.2")
+    implementation("io.insert-koin:koin-core:3.3.2")
 
     // Glide (image)
     implementation("com.github.bumptech.glide:glide:4.13.2")

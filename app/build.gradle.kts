@@ -123,8 +123,6 @@ dependencies {
 
     // Koin Test Dependencies
     testImplementation("io.insert-koin:koin-test:3.3.2")
-    implementation("io.insert-koin:koin-android:3.3.0")
-    implementation("io.insert-koin:koin-androidx-workmanager:3.1.0")
 }
 
 // third-party dependencies
@@ -141,6 +139,7 @@ dependencies {
 
     // Koin for Kotlin apps core (dependency injection)
     implementation("io.insert-koin:koin-core:3.3.2")
+    implementation("io.insert-koin:koin-android:3.3.2")
 
     // Glide (image)
     implementation("com.github.bumptech.glide:glide:4.13.2")

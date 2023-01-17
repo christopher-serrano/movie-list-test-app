@@ -10,7 +10,9 @@ import com.serranocjm.movielisttestapp.utils.custom.OnOneOffClickListener
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.InputStream
 import java.lang.reflect.Type
+import java.nio.charset.Charset
 
 // utility to return type tokens
 inline fun <reified T> typeToken(): TypeToken<T> = object : TypeToken<T>() {}
@@ -47,6 +49,10 @@ fun <T> String.objectFromJson(classOfT: Class<T>): Any? {
 inline fun <reified T : Any> String.toKotlinObject(): T {
     val gson = Gson()
     return gson.fromJson(this, T::class.java)
+}
+
+fun InputStream.readTextAndClose(charset: Charset = Charsets.UTF_8): String {
+    return this.bufferedReader(charset).use { it.readText() }
 }
 
 fun delayAction(delay: Long, action: () -> Unit) = CoroutineScope(Dispatchers.Main).launch {

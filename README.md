@@ -1,7 +1,7 @@
 # YAMLA - Yet Another Movie List App
 
 This is a simple Android application that queries a list of movies from a
-custom [API](https://my.api.mockaroo.com/movies.json?key=cb03b960) and shows their details
+custom [API](https://my.api.mockaroo.com/movies.json?key=cb03b960) and shows their details.
 
 ## Project Characteristics
 
@@ -14,6 +14,7 @@ This project makes use of the following tools and solutions:
   using [Android Navigation components](https://developer.android.com/guide/navigation/navigation-getting-started)
   to deal fragment transactions.
 * Dependency Injection
+* Basic permission handling (in this case, it asks for coarse location permission)
 
 ## Technical Stack
 
@@ -41,6 +42,7 @@ The tech stack used for this project includes:
     * [Room](https://developer.android.com/topic/libraries/architecture/room) to handle in-app
       persistence.
 * [Glide](https://bumptech.github.io/glide/l) for image loading
+* [Mockito](https://site.mockito.org/) for mocking data and classes for unit testing alongside JUnit4
 * ... among others.
 * Architecture:
     * MVVM as the main design pattern. It was decided to forgo the implementation CLEAN architecture
